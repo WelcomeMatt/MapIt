@@ -1,0 +1,241 @@
+@font-face {font-family: Travellers; src: url("travellers.ttf");}
+@font-face {font-family: BrushedTraveler; src: url("brushedtraveler.ttf");}
+@font-face {font-family: Basic; src: url("basictitlefont.ttf");}
+
+#header {
+	height:45px;
+	width: 100%;
+	position: fixed;
+	background-color: rgba(0,0,0,0.6);
+	vertical-align: middle;
+	z-index: 2;
+}
+
+#hdrTitle {
+	font-family: Travellers;
+	font-size: 22px;
+	color: white;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+#srchBar {
+	width: 350px;
+	height: 20px;
+	margin-left: 25px;
+	display: inline-block;
+	border-radius: 2px;
+	padding-left: 10px;
+	font-family: "Century Gothic", sans-serif;
+	border:none;
+}
+
+#srchBtn {
+	height:23px;
+	margin-left:10px;
+	border-radius: 5px;
+	background-color: rgba(255,255,255, 0.4);
+	border: none;
+	font-family: "Century Gothic", sans-serif;
+	font-size:15px;
+}
+
+#linkBar {
+	display: inline-block;
+	margin-left: 300px;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+	margin-right: 10px;
+	font-family: "Century Gothic", sans-serif;
+}
+
+#homeLink:hover, #mapLink:hover, #logoutLink:hover {
+	border-bottom: 1px solid white;
+}
+
+#quickMenu{
+	position:fixed;
+	bottom:0;
+	display: flex;
+	width: 50%;
+	z-index: 2;
+}
+
+#profilePic {
+	height:100px;
+	width:130px;
+	float: left;
+}
+
+#slider{
+	height:67px;
+	background-color: rgba(211,211,211,0.6);
+	width:25px;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	padding-top: 33.5px;
+	font-family: "Century Gothic", sans-serif;
+	font-size:20px;
+	color: rgb(190,190,190);
+}
+
+.slideNav {
+	width:0;
+    z-index: 2;
+    height: 100px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    font-size: 12px;
+}
+
+.slideNav a {
+	display: block;
+	text-align: center;
+}
+
+#mapDisplay {
+	width:100%;
+	position:absolute;
+	z-index: 0;
+	top: -100px;
+	opacity: 0.5;
+}
+
+#mapDisplay:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+#map {
+	z-index: 0;
+}
+
+#usrContent {
+	background-color: white;
+	width:100%;
+	top:250px;
+	height:600px;
+	z-index: 1;
+	border-top: 4px solid rgba(244,164,96,0.5);
+	border-bottom: 4px solid rgba(244,164,96,0.5);
+	position: absolute;
+	text-align: justify;
+}
+
+#usrContent:after {
+	content: "";
+	width: 100%;
+	display: inline-block;
+}
+
+#mainColumn{
+	display: inline-block;
+}
+
+#pageProfilePic{
+	height:100px;
+	width:130px;
+	display: block;
+	margin:0 auto;
+	position: relative;
+	top:-125px;
+	border: 3px solid white;
+	margin-bottom: 10px;
+}
+
+#profileName{
+	text-align: center;
+	font-family: "Century Gothic", sans-serif;
+	position: relative;
+	top:-100px;
+}
+
+#profileTagline{
+	text-align: center;
+	font-size: 10px;
+	position: relative;
+	top:-110px;
+	font-family: sans-serif;
+}
+
+#usrActivity{
+	text-align: center;
+	background-color: rgba(244,164,96,0.3);
+	height: 400px;
+	width: 336px;
+	top:-90px;
+	position: relative;
+	margin:0 auto;
+	border-radius: 5px;
+	padding-top:20px;
+	font-family: Basic, sans-serif;
+	font-size: 20px;
+	overflow-y: auto;
+}
+
+#leftColumn{
+	background-color: rgba(244,164,96,0.3);
+	height: 475px;
+	width: 275px;
+	border-radius: 5px;
+	padding-top:20px;
+	font-family: Basic, sans-serif;
+	font-size: 20px;
+	overflow-y: auto;
+	display: inline-block;
+	top:-90px;
+	position: relative;
+	margin: 0 auto;
+	left: 50px;
+}
+
+#topCountries {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.countryflag:hover {
+	cursor: pointer;
+	box-shadow: 0px 1px rgba(0,0,0,1) inset;
+}
+
+#bioText {
+	padding-left: 10px;
+}
+
+#rightColumn {
+	background-color: rgba(244,164,96,0.3);
+	height: 475px;
+	width: 275px;
+	border-radius: 5px;
+	padding-top:20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: Basic, sans-serif;
+	font-size: 20px;
+	overflow-y: auto;
+	display: inline-block;
+	top:-90px;
+	position: relative;
+	margin: 0 auto;
+	right: 50px;
+}
+
+.nameLink {
+	color: rgba(0,0,0,0.4);
+	text-decoration: none;
+	font-family: Basic, sans-serif;
+}
+
+.nameLink:hover {
+	color: rgba(0,0,0,0.8);
+	text-decoration: none;
+	font-family: Basic, sans-serif;
+	cursor: pointer;
+}

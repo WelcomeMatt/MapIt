@@ -1,0 +1,90 @@
+@font-face {font-family: Travellers; src: url("travellers.ttf");}
+@font-face {font-family: BrushedTraveler; src: url("brushedtraveler.ttf");}
+
+#text {
+	position: fixed;
+	background: black;
+	height:100px;
+	width: 250px;
+	left: 462px;
+	top: 150px;
+}
+
+#title {
+	color: white;
+	font-family: Travellers;
+	font-size: 40px;
+	margin-top: 3px;
+	margin-bottom: 5px;
+	padding-top: 20px;
+}
+
+#subtitle {
+	color: white;
+	font-family: BrushedTraveler;
+	font-size: 7px;
+	margin-top: 5px;
+}
+
+#back {
+	height: 350px;
+	width: 300px;
+	background-color: rgba(255,255,255,0.5);
+	left: 437px;
+	top: 125px;
+	position: fixed;
+}
+
+#invld {
+	font-family: "Century Gothic", sans-serif;
+	font-size: 12px;
+	margin:0;
+}
+
+#loginAccess {
+	margin-top: 145px;
+}
+
+input {
+	width: 80%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    opacity: 1;
+}
+
+.loginBtn {
+	padding: 7px 40px; 
+	background-color: rgba(250, 242, 195, 0.7);
+	border-radius: 2px;
+	font-size: 16px;
+	font-family: "Century Gothic", sans-serif;
+	border:none;
+	opacity: 0.5;
+	margin-top: 20px;
+}
+
+.loginBtn:hover {
+	border: 1px solid black;
+	padding: 6px 39px; 
+}
+
+img {
+	height:133px;
+	width:200px;
+	margin:5px;
+}
+
+#contents {
+	text-align: center
+}
+
+#footer {
+	font-size: 12px;
+	font-family: Helvetica;
+	position: absolute;
+	right: 45px;
+	margin-bottom: 10px;
+}
