@@ -1,11 +1,45 @@
 <!DOCTYPE html>
+<?php 
+	if ($_SERVER['REQUEST_METHOD'] == "POST") {
+		$hostname = "127.0.0.1";
+		$user = "root";
+		$password = "Ueckert1!";
+		$dbname = "mapit_users";
+
+		$conn = mysql_connect($hostname, $user, $password);
+
+		if(!$conn){
+			echo "Connection Error.";
+		}else{
+			$user_name = $_POST['usrName'];
+			$password = $_POST['psswrd'];
+			$noAcntFlg = 0;
+
+			mysql_select_db($dbname);
+
+			$retval = mysql_query("SELECT * FROM users WHERE (user_name = '$user_name') AND (password = '$password')", $conn);
+
+			if(!$retval) {
+				//create an erro message for this
+				mysql_close($conn);
+			}else{
+				if(mysql_num_rows($retval) <= 0){
+					mysql_close($conn);
+				}else{
+					//$_GET['user-name'] = $user_name;
+					mysql_close($conn);
+					echo "<script type='text/javascript'>window.open('http://localhost/MapIt/home.php?user-name=".$user_name."', '_self');</script>";
+				}
+			}
+		}
+	}
+?>
 <html>
 	<head>
-		<title>MapIt</title>
+		<title>MapIt | Log in</title>
 		<link type="text/css" rel="stylesheet" href="./stylesheet.css" />
 	</head>
 	<body>
-
 		<div id="page">
 				<div id = "contents">
 					<!-- Top Row of Pictures -->
@@ -39,12 +73,19 @@
 					<div id="login">
 						<div id="back">
 							<div id="loginAccess">
-								<h5><a href="./createAccount.php" style="font-family: Century Gothic; font-size: 10px;" onclick="return createUser()">Create Account</a></h5>
-								<p id="invld"></p>
-								<form method="post" action="login.php">
+								<h5 style="font-family: 'Century Gothic'; font-size: 10px;"><a href="./createAccount.php" style="text-decoration: none;">Create Account</a></h5>
+								<!--Checks if account for user has been created. if not print message.-->
+								<?php
+									if($_SERVER['REQUEST_METHOD'] == "POST") 
+									{
+										echo "<p id='invld' style='font-family: 'Century Gothic', sans-serif; font-size: 12px; margin:0;'>Invalid Username or Password.</p>";
+									}
+								?>
+
+								<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 									<input type="text" name="usrName" placeholder="Username" required="required"/>
 									<input type="password" name="psswrd" placeholder="Password" required="required"/>
-									<button type="button" class="loginBtn" onclick="login(this.form)"><strong>Log In</strong></button>
+									<input type="submit" name="submit" class="loginBtn" value="Log In"/>
 								</form>
 								<script type="text/javascript">
 									function login(form) {

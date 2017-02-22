@@ -1,4 +1,27 @@
 <!DOCTYPE html>
+<?php
+	$user_name = $_GET['user-name'];
+	$hostname = "127.0.0.1";
+	$user = "root";
+	$password = "Ueckert1!";
+	$dbname = "mapit_users";
+	$dbFlag = 0;
+
+	$conn = mysql_connect($hostname, $user, $password);
+
+	if(!$conn){
+		echo "Connection Error.";
+	}else{
+		$dbFlag = 1;
+		mysql_select_db($dbname);
+
+		$query = "SELECT * FROM users WHERE user_name = '$user_name'";
+
+		$result = mysql_query($query, $conn);
+
+		$row = mysql_fetch_assoc($result);
+	}
+?>
 <html>
 	<head>
 		<title>Mapper | Home</title>
@@ -11,7 +34,7 @@
 				<div id="header">
 					<a href="home.php"><p id="hdrTitle">Mapper</p></a>
 					<input type="text" id="srchBar" name="srchBar" placeholder="Search..."/>
-					<button type="button" id="srchBtn" onclick="search(this.form">Go</button>
+					<button type="button" id="srchBtn" onclick="search(this.form)">Go</button>
 					<div id="linkBar">
 						<a href="home.php" id="homeLink">Home</a>
 						<a href="map.php" id="mapLink">My Map</a>
@@ -21,7 +44,7 @@
 
 				<div id="quickMenu">
 					<div id="qmPhoto">
-						<img id = "profilePic" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfVtHlQ9OBYNiPTcO-bP2_CL-R1Qjqvle31zmGWTLw_rk20vVs"/>
+						<img id = "profilePic" src= <?php echo"'".$row['profile_picture']."'"; ?>/>
 					</div>
 					<div id="qmNav" class="slideNav">
 						<a href="home.php" id="homeLink">Profile</a>
@@ -71,21 +94,21 @@
 						</div>
 
 						<div id="mainColumn">
-							<img id = "pageProfilePic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Nc4Hbj_aYHqPFirtSgBh8ZBFn2tHILeugKRkca5xzRwTrtfa"/>
-							<h1 id="profileName"> Username </h1>
+							<img id = "pageProfilePic" src=<?php echo"'".$row['profile_picture']."'"; ?>/>
+							<h1 id="profileName"> <?php echo $row['first_name'] . " " . $row['last_name'];?> </h1>
 							<p id="profileTagline">-------</p>
 							<div id="usrActivity">
 								<p> <u>Your Feed</u></p>
 								<p id="yourFeed"></p>
 							</div>
 
-							<script type="text/javascript">
+							<!--<script type="text/javascript">
 								var userID =  sessionStorage.getItem("userIdentification");
 								document.getElementById("profileName").innerHTML = localStorage.getItem("firstName" + userID) + " " + localStorage.getItem("lastName" + userID);
 								document.getElementById("profilePic").src = localStorage.getItem("ppSrc" + userID);
 								document.getElementById("pageProfilePic").src = localStorage.getItem("ppSrc" + userID);
 								document.getElementById("yourFeed").innerHTML = localStorage.getItem("activity" + userID);
-							</script>
+							</script>-->
 						</div>
 
 						<div id="rightColumn">
