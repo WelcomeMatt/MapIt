@@ -3,7 +3,7 @@
 	$user_name = $_GET['user-name'];
 	$hostname = "127.0.0.1";
 	$user = "root";
-	$password = "Ueckert1!";
+	$password = "password";
 	$dbname = "mapit_users";
 	$dbFlag = 0;
 
