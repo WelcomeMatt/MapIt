@@ -3,7 +3,7 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$hostname = "127.0.0.1";
 		$user = "root";
-		$password = "Ueckert1!";
+		$password = "password";
 		$dbname = "mapit_users";
 
 		$conn = mysql_connect($hostname, $user, $password);
